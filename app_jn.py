@@ -2,7 +2,6 @@ import os
 import sqlite3
 import pandas as pd
 import streamlit as st
-import openpyxl
 import io
 
 st.set_page_config(page_title="Calculadora de Compras Preescolar", layout="wide")
