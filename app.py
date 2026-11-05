@@ -70,7 +70,7 @@ if semanas_disponibles:
         matricula = st.number_input(
             "2. Ingresa la matrícula de alumnos (Multiplicador):",
             min_value=1,
-            value=80,
+            value=100,
         )
 
     st.markdown("---")
@@ -165,7 +165,7 @@ if semanas_disponibles:
                             [d for d in DIAS_SEMANA if d in matriz.columns]
                         ]
                         matriz["TOTAL"] = matriz.sum(axis=1)
-                        matriz = matriz.round(2).reset_index().rename(
+                        matriz = matriz.round(4).reset_index().rename(
                             columns={"Unidad Final": "Unidad"}
                         )
                         columnas_dias = [
