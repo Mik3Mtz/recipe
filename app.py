@@ -45,7 +45,7 @@ def tabla_por_dia(df_dia):
         .sort_values(by="Insumo")
     )
     out["Cantidad"] = out["Cantidad"].round(2)
-    return out
+    return out[["Insumo", "Cantidad", "Unidad"]]
 
 
 # 1. Obtener semanas disponibles
@@ -168,6 +168,12 @@ if semanas_disponibles:
                         matriz = matriz.round(2).reset_index().rename(
                             columns={"Unidad Final": "Unidad"}
                         )
+                        columnas_dias = [
+                            d for d in DIAS_SEMANA if d in matriz.columns
+                        ]
+                        matriz = matriz[
+                            ["Insumo"] + columnas_dias + ["TOTAL", "Unidad"]
+                        ]
                         st.dataframe(
                             matriz, use_container_width=True, hide_index=True
                         )
