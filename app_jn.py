@@ -54,7 +54,7 @@ def tabla_por_dia(df_dia):
         .sort_values(by="Insumo")
     )
     out["Cantidad"] = out["Cantidad"].round(DECIMALES)
-    return out
+    return out[["Insumo", "Cantidad", "Unidad"]]
 
 
 # 1. Obtener semanas disponibles
