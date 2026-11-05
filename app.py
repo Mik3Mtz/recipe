@@ -44,7 +44,7 @@ def tabla_por_dia(df_dia):
         .rename(columns={"Unidad Final": "Unidad"})
         .sort_values(by="Insumo")
     )
-    out["Cantidad"] = out["Cantidad"].round(2)
+    out["Cantidad"] = out["Cantidad"].round(4)
     return out[["Insumo", "Cantidad", "Unidad"]]
 
 
