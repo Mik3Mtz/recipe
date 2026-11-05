@@ -178,6 +178,12 @@ if semanas_disponibles:
                         matriz = matriz.round(DECIMALES).reset_index().rename(
                             columns={"Unidad Final": "Unidad"}
                         )
+                        columnas_dias = [
+                            d for d in DIAS_SEMANA if d in matriz.columns
+                        ]
+                        matriz = matriz[
+                            ["Insumo"] + columnas_dias + ["TOTAL", "Unidad"]
+                        ]
                         st.dataframe(
                             matriz, use_container_width=True, hide_index=True
                         )
